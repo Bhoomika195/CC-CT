@@ -1,0 +1,62 @@
+:root{
+  --bg:#f5f7fb;
+  --card:#ffffff;
+  --muted:#6b7280;
+  --accent:#2b8aef;
+  --radius:10px;
+}
+:root[data-theme='dark']{
+  --bg:#0b1220;
+  --card:#0f1724;
+  --muted:#9ca3af;
+  --accent:#60a5fa;
+}
+*{box-sizing:border-box}
+body{font-family:Inter,Segoe UI,Roboto,Arial; background:var(--bg); margin:0; color:#111}
+.app{min-height:100vh; display:flex; flex-direction:column}
+header.site{background:linear-gradient(90deg,#0f172a,#1e293b); color:white; padding:18px}
+.container{display:flex; gap:20px; padding:24px; max-width:1100px; margin:18px auto; width:100%}
+.left{flex:1}
+.right{width:420px}
+.card{background:var(--card); border-radius:var(--radius); padding:16px; box-shadow:0 6px 20px rgba(10,20,30,0.05); margin-bottom:16px}
+.card h3{margin:0 0 12px 0}
+.form-row{display:flex; gap:8px; margin-bottom:8px}
+.form-row input, .form-row select{flex:1; padding:8px; border:1px solid #e6e9ef; border-radius:8px}
+.input-with-icon{display:flex;align-items:center;gap:8px}
+.input-icon{display:inline-flex;align-items:center;justify-content:center; width:36px; height:36px; border-radius:50%; background:var(--accent); color:#fff; font-size:18px; box-shadow:0 6px 18px rgba(43,138,239,0.10)}
+.input-icon svg{width:16px; height:16px}
+.form-error{color:#b91c1c;background:rgba(185,28,28,0.06);padding:8px;border-radius:8px;margin-bottom:8px}
+.btn{background:var(--accent); color:white; border:none; padding:8px 12px; border-radius:8px; cursor:pointer; transition:transform .12s ease, box-shadow .12s ease}
+.btn:hover{transform:translateY(-3px); box-shadow:0 8px 22px rgba(43,138,239,0.18)}
+.muted{color:var(--muted)}
+.history-item{display:flex; justify-content:space-between; gap:8px; padding:8px 0; border-bottom:1px dashed #eef2f6}
+.footer{padding:12px; text-align:center; color:var(--muted)}
+
+/* Header nav */
+.site .container nav a{color:rgba(255,255,255,0.92); text-decoration:none}
+.site .container nav a.muted{color:rgba(255,255,255,0.85)}
+
+/* Card entrance animation */
+@keyframes floatIn { from {opacity:0; transform: translateY(6px)} to {opacity:1; transform:none} }
+.card{animation: floatIn .35s ease both}
+
+@keyframes slideUp { from { transform: translateY(12px); opacity:0 } to { transform:none; opacity:1 } }
+
+/* Tag chip small animation */
+.tag-chip{display:inline-block;padding:4px 8px;border-radius:999px;color:white;font-size:12px;margin-right:6px;transition:transform .12s ease}
+.tag-chip:hover{transform:translateY(-3px)}
+
+/* Snackbar animation handled inline via slideUp */
+
+/* Responsive tweaks */
+@media(max-width:900px){
+  .container{flex-direction:column; padding:12px}
+  .right{width:100%}
+  .site .container{flex-direction:column;align-items:flex-start;gap:12px}
+  .site .container nav{align-self:stretch;display:flex;gap:8px}
+}
+
+@media(max-width:900px){
+  .container{flex-direction:column; padding:12px}
+  .right{width:100%}
+}
